@@ -8,8 +8,7 @@ with open('input.txt') as f:
 lookup = defaultdict(set)
 
 for rule in rules:
-    container = rule.pop(0)
-    [lookup[bag].add(container) for bag in rule]
+    [lookup[bag].add(rule[0]) for bag in rule[1:]]
 
 def get_containers(bag_colour):
     direct_containers = lookup[bag_colour]
